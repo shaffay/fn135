@@ -1,88 +1,61 @@
-import { StyleSheet, Text, View,Image, } from 'react-native';
+import { StyleSheet, Text, View,Image,FlatList } from 'react-native';
 import { Card,Title,FAB  } from 'react-native-paper';
 
 
+
+
 export default function Home() {
+
+  const data = [
+    {id:"1",name:"Shaffay Bajwa",position:"React Native Dev",Picture:"https://images.unsplash.com/photo-1642935577638-ef43a783963e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"},
+    {id:"2",name:"Umer Rehan",position:"React Js Dev",Picture:"https://images.unsplash.com/photo-1642935577638-ef43a783963e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"},
+    {id:"3",name:"Safwan Khan",position:"WordPress Dev",Picture:"https://images.unsplash.com/photo-1642935577638-ef43a783963e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"},
+  ]
+
+  const RenderList = (item) => {
+    return(
+
+        <Card style={styles.cardview} key={item.id}>
+
+        <View style={styles.cardcontent} >
+
+            {/* <Image 
+            source={{uri: item.Picture }}
+            style={styles.img}
+            /> */}
+
+            <View style={styles.cardText}>
+                            <Title>
+                               {item.name}
+                            </Title>
+
+                            <Text style={{fontSize:18}}>
+                              {item.position}
+                            </Text>
+
+        </View>
+
+
+        </View>
+
+        </Card>
+
+    )
+  }
+
   return (
 
     <View style={styles.container}>
 
-<Card style={styles.cardview}>
+      <FlatList 
+      data={data}
+      renderItem={ ({ item })=>{
+        return RenderList(item)
+      }
+        }
+      
+      />
 
-        <View style={styles.cardcontent} >
-
-            <Image 
-            source={{uri:"https://images.unsplash.com/photo-1642935577638-ef43a783963e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"}}
-            style={styles.img}
-            />
-
-            <View style={styles.cardText}>
-                            <Title>
-                                Shaffay Bajwa
-                            </Title>
-
-                            <Text style={{fontSize:18}}>
-                               React Native Developer
-                            </Text>
-
-        </View>
-
-
-    </View>
-
-</Card>
-   
-
-<Card style={styles.cardview}>
-
-        <View style={styles.cardcontent} >
-
-            <Image 
-            source={{uri:"https://images.unsplash.com/photo-1642935577638-ef43a783963e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"}}
-            style={styles.img}
-            />
-
-            <View style={styles.cardText}>
-                            <Title>
-                                Shaffay Bajwa
-                            </Title>
-
-                            <Text style={{fontSize:18}}>
-                               React Native Developer
-                            </Text>
-
-        </View>
-
-
-    </View>
-
-</Card>
-   
-
-<Card style={styles.cardview}>
-
-        <View style={styles.cardcontent} >
-
-            <Image 
-            source={{uri:"https://images.unsplash.com/photo-1642935577638-ef43a783963e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"}}
-            style={styles.img}
-            />
-
-            <View style={styles.cardText}>
-                            <Title>
-                                Shaffay Bajwa
-                            </Title>
-
-                            <Text style={{fontSize:18}}>
-                               React Native Developer
-                            </Text>
-
-        </View>
-
-
-    </View>
-
-</Card>
    
 <FAB
         style={styles.fab}
@@ -129,3 +102,4 @@ const styles = StyleSheet.create({
 
 
 });
+
