@@ -10,6 +10,7 @@ export default function Home() {
     {id:"1",name:"Shaffay Bajwa",position:"React Native Dev",Picture:"https://images.unsplash.com/photo-1642935577638-ef43a783963e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"},
     {id:"2",name:"Umer Rehan",position:"React Js Dev",Picture:"https://images.unsplash.com/photo-1642935577638-ef43a783963e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"},
     {id:"3",name:"Safwan Khan",position:"WordPress Dev",Picture:"https://images.unsplash.com/photo-1642935577638-ef43a783963e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"},
+    {id:"4",name:"Mwheish Khan",position:"WordPress Dev",Picture:"https://images.unsplash.com/photo-1642935577638-ef43a783963e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"},
   ]
 
   const RenderList = (item) => {
@@ -19,24 +20,23 @@ export default function Home() {
 
         <View style={styles.cardcontent} >
 
-            {/* <Image 
+            <Image 
             source={{uri: item.Picture }}
             style={styles.img}
-            /> */}
+            />
 
             <View style={styles.cardText}>
-                            <Title>
-                               {item.name}
-                            </Title>
+              <Title>
+                  {item.name}
+              </Title>
 
-                            <Text style={{fontSize:18}}>
-                              {item.position}
-                            </Text>
+              <Text style={{fontSize:18}}>
+                {item.position}
+              </Text>
 
-        </View>
+            </View>
 
-
-        </View>
+           </View>
 
         </Card>
 
@@ -48,16 +48,16 @@ export default function Home() {
     <View style={styles.container}>
 
       <FlatList 
-      data={data}
-      renderItem={ ({ item })=>{
-        return RenderList(item)
-      }
+          data={data}
+          renderItem={ ({ item })=>{
+            return RenderList(item)
+          }
         }
       
       />
 
    
-<FAB
+     <FAB
         style={styles.fab}
         large
         icon="plus"

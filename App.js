@@ -1,13 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View,Image, } from 'react-native';
-import Home from './screens/Home'
+import Home from './screens/Home';
+import Profile  from './screens/Profile';
 import Constants from 'expo-constants';
 
 export default function App() {
   return (
     <View style={styles.container}>
 
-    <Home />
+    {/* <Home /> */}
+    <Profile />
 
 
     </View>
