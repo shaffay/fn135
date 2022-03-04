@@ -65,7 +65,7 @@ export default function Profile() {
             <Button style={styles.btnn} icon="account-edit" mode="contained" onPress={() => console.log('Pressed')}>
              Update Profile
             </Button>
-            <Button style={styles.btnn}  icon="delete-sweep-outline" mode="contained" onPress={() => console.log('Pressed')}>
+            <Button style={styles.btnn}  icon="delete-sweep-outline " mode="contained" onPress={() => console.log('Pressed')}>
             Fire Employee
             </Button>
             </View>
