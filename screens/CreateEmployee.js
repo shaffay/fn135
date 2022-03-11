@@ -62,20 +62,43 @@ export default function createEmployee() {
           onChangeText={text => setSalary(text)}
         />
 
-   <Button icon="camera" style={styles.input} mode="contained" onPress={() => setVModal(true) }>
+   <Button icon="upload-outline" style={styles.input} theme={theme} mode="contained" onPress={  () => setVModal(true) }>
     Upload File
    </Button>
-    <Button icon="camera" style={styles.input} mode="contained" onPress={() => console.log('Pressed')}>
+    <Button icon="content-save" style={styles.input} theme={theme}  mode="contained" onPress={() => console.log('Pressed')}>
     Save
      </Button>
 
-        <Modal visible="VModal"  >
-              <Button icon="camera" style={styles.input} mode="contained" onPress={() => console.log('Pressed')}>
+        <Modal 
+        
+        visible={VModal} 
+        animationType="slide"
+        transparent={true}
+        onRequestClose={() => {
+        setVModal(false);
+        }}
+        
+        >
+          <View style={styles.modalview}>
+
+<View style={styles.modalButton}>
+
+              <Button icon="camera" style={styles.input}  theme={theme}  mode="contained" onPress={() => console.log('Pressed')}>
                   Camera
                 </Button>
-                  <Button icon="camera" style={styles.input} mode="contained" onPress={() => console.log('Pressed')}>
+                  <Button icon="image-multiple" theme={theme}  style={styles.input} mode="contained" onPress={() => console.log('Pressed')}>
                 Gallery
                   </Button>
+</View>
+
+<View style={{alignItems:"center"}}>
+  
+                  <Button style={{margin:10,width:120}} theme={theme}  icon="arrow-left-circle" mode="contained" onPress={() => setVModal(false)}>
+              Cancle
+                  </Button>
+</View>
+
+          </View>
 
         </Modal>
 
@@ -83,16 +106,16 @@ export default function createEmployee() {
     </View>
 
   );
-  const theme = {
-
-    colors: {
-      primary: "#009ea1",
-      accent:"#081c1c",
-    },
-
-
-  };
 }
+const theme = {
+
+  colors: {
+    primary: "#009ea1",
+    accent:"#081c1c",
+  },
+
+
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -102,8 +125,18 @@ const styles = StyleSheet.create({
   input:{
     margin:10,
 
-  }
+  },
+  modalview: {
+    position: "absolute",
+    bottom: 2,
+    width: "100%",
+    backgroundColor: "white",
 
+  },
+  modalButton:{
+    flexDirection:"row",
+    justifyContent:"space-evenly"
+  }
 
 });
 
